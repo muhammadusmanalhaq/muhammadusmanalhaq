@@ -23,6 +23,10 @@ export const metadata: Metadata = {
     description: 'CS Student · Full-Stack Developer · ICPC Regionalist',
     type: 'website',
   },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/favicon.ico",
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
