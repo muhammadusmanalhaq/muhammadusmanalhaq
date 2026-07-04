@@ -19,7 +19,7 @@ export default function Footer() {
             LinkedIn
           </a>
           <a
-            href="https://github.com/Usman-42069"
+            href="https://github.com/muhammadusmanalhaq"
             target="_blank"
             rel="noopener noreferrer"
             className="footer-link"

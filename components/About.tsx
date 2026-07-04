@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 
 export default function About() {
@@ -25,13 +24,13 @@ export default function About() {
   return (
     <section id="about" className="section" ref={sectionRef} aria-label="About me">
       <div className="container">
-        <div className="section-header reveal">
+        <div className="section-header reveal" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
           <div className="section-label">Who I Am</div>
           <h2 className="section-title">About Me</h2>
         </div>
 
         <div className="about-grid">
-          {/* Bio text */}
+          {/* Bio text — full width now that photo is in the Hero */}
           <div className="about-text reveal">
             <p className="about-lead">
               I&apos;m a third-year Computer Science student at{' '}
@@ -49,14 +48,14 @@ export default function About() {
               across different consumer hardware to analyze performance bottlenecks.
             </p>
 
-            <div className="about-tags">
+            <div className="about-tags" style={{ justifyContent: 'center' }}>
               <span className="tag">🏆 ICPC Regionalist</span>
               <span className="tag">🔬 HPC Research</span>
               <span className="tag">🌍 Web Dev Intern — Kuwait</span>
               <span className="tag">📍 Islamabad, Pakistan</span>
             </div>
 
-            <div className="about-langs">
+            <div className="about-langs" style={{ justifyContent: 'center' }}>
               {[
                 { lang: 'English', level: 'Professional' },
                 { lang: 'Urdu',    level: 'Native'       },
@@ -69,18 +68,6 @@ export default function About() {
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Photo */}
-          <div className="about-photo-wrap reveal">
-            <Image
-              src="/me.jpeg"
-              alt="Muhammad Usman Al Haq"
-              width={320}
-              height={400}
-              className="about-photo"
-              priority
-            />
           </div>
         </div>
       </div>

@@ -1,9 +1,11 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import GlobalLightbox from './GlobalLightbox'
 
 export default function Experience() {
   const sectionRef = useRef<HTMLElement>(null)
+  const [lightbox, setLightbox] = useState<{url: string, type: 'image'} | null>(null)
 
   useEffect(() => {
     const items = sectionRef.current?.querySelectorAll('.reveal')
@@ -77,16 +79,21 @@ export default function Experience() {
                 </div>
 
                 <div style={{ flex: '0 0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <a href="/Internship%20Certificate.jpg" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <button 
+                    onClick={() => setLightbox({ url: '/Internship%20Certificate.jpg', type: 'image' })} 
+                    aria-label="View Internship Certificate"
+                    style={{ display: 'inline-block', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', cursor: 'pointer', background: 'none', padding: 0 }}
+                  >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src="/Internship%20Certificate.jpg" alt="Internship Certificate" style={{ width: '100%', maxWidth: '240px', display: 'block' }} />
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <GlobalLightbox media={lightbox} onClose={() => setLightbox(null)} />
     </section>
   )
 }

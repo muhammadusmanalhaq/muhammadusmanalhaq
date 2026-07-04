@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { Analytics } from '@vercel/analytics/react'
+import ParticleBackground from '@/components/ParticleBackground'
 
 export const metadata: Metadata = {
   title: 'Muhammad Usman Al Haq — Developer Portfolio',
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     'Portfolio',
     'Islamabad',
   ],
-  authors: [{ name: 'Muhammad Usman Al Haq', url: 'https://github.com/Usman-42069' }],
+  authors: [{ name: 'Muhammad Usman Al Haq', url: 'https://github.com/muhammadusmanalhaq' }],
   openGraph: {
     title: 'Muhammad Usman Al Haq — Developer Portfolio',
     description: 'CS Student · Full-Stack Developer · ICPC Regionalist',
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {children}
+        <ParticleBackground />
         <Analytics />
       </body>
     </html>
