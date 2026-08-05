@@ -30,11 +30,8 @@ export default function ParticleBackground() {
     let height = window.innerHeight;
     canvas.width = width;
     canvas.height = height;
-
     const isMobile = width < 768;
     const particleCount = isMobile ? 40 : 90;
-    const connectDistance = isMobile ? 130 : 180;
-    const maxLineOpacity = isMobile ? 0.2 : 0.3;
 
     let particles: Particle[] = Array.from({ length: particleCount }).map(
       () => ({
