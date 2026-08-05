@@ -796,7 +796,15 @@ h1,h2,h3,h4 {
     flex-direction: column;
   }
 }
-.about-text { flex: 0 0 50%; }
+.about-text { 
+  flex: 0 0 50%; 
+  background: rgba(19, 25, 41, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
 .about-image-card { flex: 0 0 50%; display: flex; justify-content: center; }
 .about-lead {
   font-size: clamp(17px, 2vw, 20px);
@@ -856,7 +864,9 @@ h1,h2,h3,h4 {
 }
 
 .skill-category-block {
-  background: rgba(19, 25, 41, 0.15);
+  background: rgba(19, 25, 41, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 24px;
