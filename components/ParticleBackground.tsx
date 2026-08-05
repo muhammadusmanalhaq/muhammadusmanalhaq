@@ -31,7 +31,7 @@ export default function ParticleBackground() {
     canvas.width = width;
     canvas.height = height;
     const isMobile = width < 768;
-    const particleCount = isMobile ? 40 : 90;
+    const particleCount = isMobile ? 40 : 140;
 
     let particles: Particle[] = Array.from({ length: particleCount }).map(
       () => ({
@@ -51,7 +51,7 @@ export default function ParticleBackground() {
       canvas!.height = height;
       
       const newIsMobile = width < 768;
-      const newCount = newIsMobile ? 40 : 90;
+      const newCount = newIsMobile ? 40 : 140;
       if (particles.length !== newCount) {
         particles = Array.from({ length: newCount }).map(
           () => ({
@@ -70,8 +70,19 @@ export default function ParticleBackground() {
     function drawFrame(animated: boolean) {
       ctx!.clearRect(0, 0, width, height);
       
-      const currentConnectDistance = width < 768 ? 130 : 180;
-      const currentMaxOpacity = width < 768 ? 0.2 : 0.3;
+      let currentConnectDistance = 180;
+      let currentMaxOpacity = 0.3;
+
+      if (width >= 768) {
+        // Desktop: dense at top (hero), fading to sparse as you scroll down
+        const scrollFactor = Math.min(1, Math.max(0, window.scrollY / (height || 800)));
+        currentConnectDistance = 220 - (40 * scrollFactor);
+        currentMaxOpacity = 0.45 - (0.15 * scrollFactor);
+      } else {
+        // Mobile: always sparse
+        currentConnectDistance = 130;
+        currentMaxOpacity = 0.2;
+      }
 
       for (const p of particles) {
         if (animated) {
