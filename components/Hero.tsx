@@ -1,8 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import Image from 'next/image'
-import GlobalLightbox from './GlobalLightbox'
+import { useEffect, useRef } from 'react'
 
 export default function Hero() {
   const orb1Ref  = useRef<HTMLDivElement>(null)
