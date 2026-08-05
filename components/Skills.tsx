@@ -38,8 +38,8 @@ const SKILL_GROUPS = [
       { name: 'TypeScript', icon: <SkillIcon src={DI('typescript','plain')}  name="TypeScript" /> },
       { name: 'Kotlin',     icon: <SkillIcon src={DI('kotlin','plain')}      name="Kotlin" /> },
       { name: 'Java',       icon: <SkillIcon src={DI('java','plain')}        name="Java" /> },
-      { name: 'C#',         icon: <SkillIcon src={DI('csharp','plain')}      name="C#" /> },
-      { name: 'PHP',        icon: <SkillIcon src={DI('php','plain')}         name="PHP" /> },
+      { name: 'C#',         icon: <SkillIcon src={DI('csharp','original')}      name="C#" /> },
+      { name: 'PHP',        icon: <SkillIcon src={DI('php','original')}         name="PHP" /> },
       { name: 'HTML5',      icon: <SkillIcon src={DI('html5','plain')}       name="HTML5" /> },
       { name: 'CSS3',       icon: <SkillIcon src={DI('css3','plain')}        name="CSS3" /> },
     ]
@@ -67,7 +67,7 @@ const SKILL_GROUPS = [
       { name: 'Android SDK',    icon: <SkillIcon src={DI('android','plain')}       name="Android" /> },
       { name: 'Flutter',        icon: <SkillIcon src={DI('flutter','original')}    name="Flutter" /> },
       { name: 'Firebase',       icon: <SkillIcon src={DI('firebase','plain')}      name="Firebase" /> },
-      { name: 'Figma',          icon: <SkillIcon src={DI('figma','plain')}         name="Figma" /> },
+      { name: 'Figma',          icon: <SkillIcon src={DI('figma','original')}         name="Figma" /> },
     ]
   },
   {
@@ -77,7 +77,7 @@ const SKILL_GROUPS = [
       { name: 'MySQL',       icon: <SkillIcon src={DI('mysql','original')}           name="MySQL" /> },
       { name: 'PostgreSQL',  icon: <SkillIcon src={DI('postgresql','plain')}         name="PostgreSQL" /> },
       { name: 'SQL Server',  icon: <SkillIcon src={DI('microsoftsqlserver','plain')} name="SQL Server" /> },
-      { name: 'SQLite',      icon: <SkillIcon src={DI('sqlite','plain')}             name="SQLite" /> },
+      { name: 'SQLite',      icon: <SkillIcon src={DI('sqlite','original')}             name="SQLite" /> },
       { name: 'Supabase',    icon: <SkillIcon src={SI('supabase')}                   name="Supabase" /> },
     ]
   },
@@ -85,7 +85,17 @@ const SKILL_GROUPS = [
     category: 'HPC & Systems',
     skills: [
       { name: 'CUDA',  icon: <SkillIcon src={SI('nvidia')} name="CUDA" style={{ filter: 'invert(0) sepia(1) hue-rotate(75deg) saturate(3)' }} /> },
-      { name: 'Linux', icon: <SkillIcon src={DI('linux','plain')} name="Linux" /> },
+      { name: 'Linux', icon: <SkillIcon src={DI('linux','original')} name="Linux" /> },
+    ]
+  },
+  {
+    category: 'Cloud & DevOps',
+    skills: [
+      { name: 'Azure',           icon: <SkillIcon src={DI('azure','original')} name="Azure" /> },
+      { name: 'Docker',          icon: <SkillIcon src={DI('docker','plain')} name="Docker" /> },
+      { name: 'GitHub Actions',  icon: <SkillIcon src={SI('githubactions')} name="GitHub Actions" /> },
+      { name: 'Azure Bicep',     icon: <SkillIcon src={DI('azure','original')} name="Bicep" /> },
+      { name: 'Key Vault',       icon: <SkillIcon src={DI('azure','original')} name="Key Vault" /> },
     ]
   },
   {
@@ -93,10 +103,9 @@ const SKILL_GROUPS = [
     skills: [
       { name: 'Git',       icon: <SkillIcon src={DI('git','plain')}           name="Git" /> },
       { name: 'GitHub',    icon: <SkillIcon src={DI('github','original')}     name="GitHub" className="icon-invert" /> },
-      { name: 'VS Code',   icon: <SkillIcon src={DI('vscode','plain')}        name="VS Code" /> },
+      { name: 'VS Code',   icon: <SkillIcon src={DI('vscode','original')}        name="VS Code" /> },
       { name: 'Postman',   icon: <SkillIcon src={DI('postman','plain')}       name="Postman" /> },
       { name: 'Vercel',    icon: <SkillIcon src={SI('vercel')}                name="Vercel" className="icon-invert" /> },
-      { name: 'WordPress', icon: <SkillIcon src={DI('wordpress','plain')}     name="WordPress" /> },
     ]
   }
 ]

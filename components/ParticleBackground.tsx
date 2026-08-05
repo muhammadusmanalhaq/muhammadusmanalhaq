@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-const PARTICLE_COUNT = 55;
-const CONNECT_DISTANCE = 140;
-const BASE_SPEED = 0.18;
-const COLOR = "90, 169, 230"; // soft tech-blue, as r,g,b
+const PARTICLE_COUNT = 140;
+const CONNECT_DISTANCE = 220;
+const BASE_SPEED = 1.2;
+const COLOR = "13, 148, 136"; // teal neon type theme color, matching the site's var(--accent)
 
 type Particle = {
   x: number;
@@ -62,9 +62,9 @@ export default function ParticleBackground() {
           if (p.x > width) p.x = 0;
           if (p.y < 0) p.y = height;
           if (p.y > height) p.y = 0;
-          p.pulse += 0.02;
+          p.pulse += 0.04;
         }
-        const glow = 0.4 + Math.sin(p.pulse) * 0.2;
+        const glow = 0.5 + Math.sin(p.pulse) * 0.3;
         ctx!.beginPath();
         ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx!.fillStyle = `rgba(${COLOR}, ${glow})`;
@@ -78,12 +78,12 @@ export default function ParticleBackground() {
           const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < CONNECT_DISTANCE) {
-            const opacity = 0.18 * (1 - dist / CONNECT_DISTANCE);
+            const opacity = 0.45 * (1 - dist / CONNECT_DISTANCE);
             ctx!.beginPath();
             ctx!.moveTo(a.x, a.y);
             ctx!.lineTo(b.x, b.y);
             ctx!.strokeStyle = `rgba(${COLOR}, ${opacity})`;
-            ctx!.lineWidth = 1;
+            ctx!.lineWidth = 1.5;
             ctx!.stroke();
           }
         }

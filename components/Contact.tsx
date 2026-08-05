@@ -7,7 +7,7 @@ const LINKS = [
     id: 'email',
     label: 'Email',
     value: 'muhammadusmanalhaq@gmail.com',
-    href: 'mailto:muhammadusmanalhaq@gmail.com',
+    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=muhammadusmanalhaq@gmail.com',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -19,7 +19,7 @@ const LINKS = [
     id: 'linkedin',
     label: 'LinkedIn',
     value: 'linkedin.com/in/muhammad-usman-al-haq',
-    href: 'https://www.linkedin.com/in/muhammad-usman-al-haq-05a321315/',
+    href: 'https://pk.linkedin.com/in/muhammad-usman-al-haq-05a321315',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>

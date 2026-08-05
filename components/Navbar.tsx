@@ -2,7 +2,15 @@
 
 import { useEffect, useState } from 'react'
 
-const NAV_SECTIONS = ['about', 'skills', 'projects', 'experience', 'achievements', 'contact']
+const NAV_SECTIONS = [
+  { id: 'hero', label: 'HERO', num: '01' },
+  { id: 'about', label: 'ABOUT', num: '02' },
+  { id: 'experience', label: 'EXPERIENCE', num: '03' },
+  { id: 'projects', label: 'PROJECTS', num: '04' },
+  { id: 'skills', label: 'SKILLS', num: '05' },
+  { id: 'achievements', label: 'CREDENTIALS', num: '06' },
+  { id: 'contact', label: 'CONTACT', num: '07' },
+]
 
 export default function Navbar() {
   const [scrolled, setScrolled]   = useState(false)
@@ -14,7 +22,7 @@ export default function Navbar() {
       setScrolled(window.scrollY > 20)
 
       const scrollY = window.scrollY + 120
-      const ids = ['hero', ...NAV_SECTIONS]
+      const ids = NAV_SECTIONS.map(s => s.id)
       let current = 'hero'
       for (const id of ids) {
         const el = document.getElementById(id)
@@ -27,7 +35,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close menu on link click
   function scrollTo(id: string) {
     setMenuOpen(false)
     const el = document.getElementById(id)
@@ -36,7 +43,6 @@ export default function Navbar() {
     window.scrollTo({ top: el.offsetTop - navH, behavior: 'smooth' })
   }
 
-  // Lock body scroll when menu open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -46,22 +52,25 @@ export default function Navbar() {
     <>
       <nav className={`navbar${scrolled ? ' scrolled' : ''}`} aria-label="Main navigation">
         <div className="nav-container">
+          
           {/* Brand */}
           <a href="#hero" className="nav-brand" onClick={e => { e.preventDefault(); scrollTo('hero') }} aria-label="Home">
-            <span className="brand-initials">M<span className="accent">U</span></span>
-            <span className="brand-name">Muhammad Usman Al Haq</span>
+            <div className="brand-logo-box">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <span className="brand-name">M. USMAN</span>
           </a>
 
           {/* Desktop links */}
           <ul className="nav-links">
-            {NAV_SECTIONS.map(id => (
-              <li key={id}>
+            {NAV_SECTIONS.map(section => (
+              <li key={section.id}>
                 <button
-                  className={`nav-link${active === id ? ' active' : ''}`}
-                  onClick={() => scrollTo(id)}
-                  aria-current={active === id ? 'page' : undefined}
+                  className={`nav-link${active === section.id ? ' active' : ''}`}
+                  onClick={() => scrollTo(section.id)}
+                  aria-current={active === section.id ? 'page' : undefined}
                 >
-                  {id.charAt(0).toUpperCase() + id.slice(1)}
+                  <span className="nav-num">{section.num}</span> {section.label}
                 </button>
               </li>
             ))}
@@ -69,10 +78,10 @@ export default function Navbar() {
               <a
                 href="/Muhammad_Usman_AlHaq_Resume.pdf"
                 download
-                className="btn btn-ghost btn-sm"
+                className="nav-resume-btn"
                 id="nav-resume-btn"
               >
-                Resume <span className="btn-icon">↓</span>
+                RÉSUMÉ
               </a>
             </li>
           </ul>
@@ -93,26 +102,31 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div className={`mobile-menu${menuOpen ? ' open' : ''}`} aria-hidden={!menuOpen}>
+        <div className="mobile-menu-header">
+          <span className="mobile-nav-title">NAVIGATION</span>
+          <button className="mobile-close-btn" onClick={() => setMenuOpen(false)}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
         <ul className="mobile-nav-links">
-          {NAV_SECTIONS.map(id => (
-            <li key={id}>
-              <button className="mobile-nav-link" onClick={() => scrollTo(id)}>
-                {id.charAt(0).toUpperCase() + id.slice(1)}
+          {NAV_SECTIONS.map(section => (
+            <li key={section.id}>
+              <button className={`mobile-nav-link${active === section.id ? ' active' : ''}`} onClick={() => scrollTo(section.id)}>
+                <span className="mobile-nav-num">{section.num}</span> {section.label}
               </button>
             </li>
           ))}
-          <li>
-            <a
-              href="/Muhammad_Usman_AlHaq_Resume.pdf"
-              download
-              className="btn btn-accent btn-full"
-              id="mobile-resume-btn"
-              onClick={() => setMenuOpen(false)}
-            >
-              Download Resume ↓
-            </a>
-          </li>
         </ul>
+        <div className="mobile-menu-divider" aria-hidden="true" />
+        <a
+          href="/Muhammad_Usman_AlHaq_Resume.pdf"
+          download
+          className="mobile-resume-btn"
+          id="mobile-resume-btn"
+          onClick={() => setMenuOpen(false)}
+        >
+          DOWNLOAD RÉSUMÉ
+        </a>
       </div>
     </>
   )

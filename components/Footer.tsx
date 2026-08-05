@@ -6,11 +6,11 @@ export default function Footer() {
           © 2026 Muhammad Usman Al Haq · Built with Next.js · Islamabad, Pakistan
         </p>
         <div className="footer-links">
-          <a href="mailto:muhammadusmanalhaq@gmail.com" className="footer-link" aria-label="Email">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=muhammadusmanalhaq@gmail.com" target="_blank" rel="noopener noreferrer" className="footer-link" aria-label="Email">
             Email
           </a>
           <a
-            href="https://www.linkedin.com/in/muhammad-usman-al-haq-05a321315/"
+            href="https://pk.linkedin.com/in/muhammad-usman-al-haq-05a321315"
             target="_blank"
             rel="noopener noreferrer"
             className="footer-link"

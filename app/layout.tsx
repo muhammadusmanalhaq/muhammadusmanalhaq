@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Analytics } from '@vercel/analytics/react'
 import ParticleBackground from '@/components/ParticleBackground'
+import TechStream from '@/components/TechStream'
 
 export const metadata: Metadata = {
   title: 'Muhammad Usman Al Haq — Developer Portfolio',
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {children}
+        <TechStream />
         <ParticleBackground />
         <Analytics />
       </body>

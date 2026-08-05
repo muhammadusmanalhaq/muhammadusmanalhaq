@@ -56,6 +56,14 @@ const ACHIEVEMENTS: AchievementItem[] = [
     date: 'June 23, 2026',
   },
   {
+    id: 'aspnet',
+    icon: '🌐',
+    title: 'Deploy an ASP.NET Core Web App',
+    desc: 'Completed Microsoft\'s "Deploy an ASP.NET Core Web App" credential, demonstrating the ability to configure and deploy robust web applications to the cloud.',
+    tag: 'Certification',
+    image: '/certificates/Deploy an ASP.NET Core.png',
+  },
+  {
     id: 'computer-fundamentals',
     icon: '💻',
     title: 'Computer Fundamentals Certification',
@@ -76,7 +84,6 @@ const ACHIEVEMENTS: AchievementItem[] = [
     title: 'Red Crescent Society — Tree Planting Initiative',
     desc: 'Led a civic initiative under Red Crescent Society Islamabad — self-funded and planted 70+ trees, contributing to environmental sustainability.',
     tag: 'Community Leadership',
-    gridColumn: '1 / -1',
   },
 ]
 
@@ -91,6 +98,25 @@ function ChessIcon({ size = 32 }: { size?: number }) {
 
 /* ── Sub-component: Certificate image ────────────────────────── */
 function CertImage({ image, title, onClick }: { image: string; title: string; onClick: () => void }) {
+  const isPdf = image.toLowerCase().endsWith('.pdf')
+  
+  if (isPdf) {
+    return (
+      <div
+        className="cert-image-wrap project-pdf-thumb"
+        onClick={onClick}
+        role="button"
+        tabIndex={0}
+        aria-label={`View PDF certificate: ${title}`}
+        onKeyDown={e => e.key === 'Enter' && onClick()}
+        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', minHeight: '180px' }}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginBottom: '12px', color: 'var(--accent)' }}><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <span style={{ fontSize: '14px', fontWeight: 600, color: 'var(--accent)' }}>View PDF Certificate</span>
+      </div>
+    )
+  }
+
   return (
     <div
       className="cert-image-wrap"
@@ -118,7 +144,7 @@ function CertImage({ image, title, onClick }: { image: string; title: string; on
 /* ── Main component ───────────────────────────────────────────── */
 export default function Achievements() {
   const sectionRef = useRef<HTMLElement>(null)
-  const [lightbox, setLightbox] = useState<{url: string, type: 'image' | 'video'} | null>(null)
+  const [lightbox, setLightbox] = useState<{url: string, type: 'image' | 'video' | 'document'} | null>(null)
 
   useEffect(() => {
     const items = sectionRef.current?.querySelectorAll('.reveal')
@@ -186,7 +212,7 @@ export default function Achievements() {
 
               {/* Certificate image (if present) */}
               {item.image && (
-                <CertImage image={item.image} title={item.title} onClick={() => setLightbox({ url: item.image!, type: 'image' })} />
+                <CertImage image={item.image} title={item.title} onClick={() => setLightbox({ url: item.image!, type: item.image!.toLowerCase().endsWith('.pdf') ? 'document' : 'image' })} />
               )}
 
               {/* Credential link + date row */}

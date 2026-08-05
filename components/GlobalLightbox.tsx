@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import Image from 'next/image'
 
 interface GlobalLightboxProps {
-  media: { url: string; type: 'image' | 'video' } | null
+  media: { url: string; type: 'image' | 'video' | 'document' } | null
   onClose: () => void
 }
 
@@ -83,7 +83,19 @@ export default function GlobalLightbox({ media, onClose }: GlobalLightboxProps) 
           ✕
         </button>
 
-        {media.type === 'video' ? (
+        {media.type === 'document' ? (
+          <div className="lightbox-pdf-wrap" style={{ background: 'var(--surface)', padding: '64px', borderRadius: '16px', textAlign: 'center', border: '1px solid var(--border)' }}>
+            <div className="lightbox-pdf-msg" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', color: 'var(--text)' }}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+              </svg>
+              <p style={{ fontSize: '18px', fontWeight: 600 }}>PDF Document</p>
+              <a href={media.url} target="_blank" rel="noopener noreferrer" className="btn btn-accent" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'var(--accent)', color: '#fff', padding: '12px 24px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600, marginTop: '16px' }}>
+                Open PDF ↗
+              </a>
+            </div>
+          </div>
+        ) : media.type === 'video' ? (
           <video 
             src={media.url} 
             controls 
