@@ -364,13 +364,14 @@ h1,h2,h3,h4 {
   z-index: 1000;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 .mobile-menu.open { transform: translateX(0); }
 .mobile-menu-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 .mobile-nav-title {
   font-family: var(--font-mono);
@@ -381,15 +382,15 @@ h1,h2,h3,h4 {
 .mobile-close-btn {
   background: none; border: none; color: #8892b0; cursor: pointer; padding: 4px;
 }
-.mobile-nav-links { display: flex; flex-direction: column; gap: 8px; list-style: none; }
+.mobile-nav-links { display: flex; flex-direction: column; gap: 4px; list-style: none; }
 .mobile-nav-link {
   display: flex;
   align-items: center;
   gap: 12px;
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 13px;
   color: #ccd6f6;
-  padding: 16px;
+  padding: 12px 16px;
   background: rgba(255,255,255,0.03);
   border-radius: 4px;
   border: none;
@@ -411,13 +412,13 @@ h1,h2,h3,h4 {
   display: block;
   text-align: center;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 12px;
   color: var(--accent);
   border: 1px solid var(--accent);
   border-radius: 4px;
-  padding: 16px;
+  padding: 12px;
   text-decoration: none;
-  margin-top: 32px;
+  margin-top: 20px;
 }
 
 /* ============================================================
