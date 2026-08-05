@@ -515,18 +515,22 @@ export default function Projects() {
                 {isHPC && (
                   <div className="project-preview-panel hpc-benchmark-panel">
                     <div className="hpc-benchmark-content">
-                      <h4 className="benchmark-title">Speedup vs Sequential CPU (N=10,000)</h4>
+                      <h4 className="benchmark-title">Hybrid Speedup vs Sequential CPU</h4>
                       <div className="benchmark-bar-group">
                         <span className="benchmark-label">Sequential C++</span>
-                        <div className="benchmark-bar" style={{ width: '10%' }}><span>1x</span></div>
+                        <div className="benchmark-bar" style={{ width: '8%' }}><span>1x</span></div>
                       </div>
                       <div className="benchmark-bar-group">
-                        <span className="benchmark-label">OpenMP AVX2</span>
-                        <div className="benchmark-bar bar-accent-1" style={{ width: '45%' }}><span>8.4x</span></div>
+                        <span className="benchmark-label">Hybrid (3840×2160)</span>
+                        <div className="benchmark-bar bar-accent-1" style={{ width: '56%' }}><span>6.65x</span></div>
                       </div>
                       <div className="benchmark-bar-group">
-                        <span className="benchmark-label">CUDA Shared Mem</span>
-                        <div className="benchmark-bar bar-accent-2" style={{ width: '90%' }}><span>112x</span></div>
+                        <span className="benchmark-label">Hybrid (1920×1080)</span>
+                        <div className="benchmark-bar bar-accent-2" style={{ width: '69%' }}><span>8.16x</span></div>
+                      </div>
+                      <div className="benchmark-bar-group">
+                        <span className="benchmark-label">Hybrid (512×512)</span>
+                        <div className="benchmark-bar bar-accent-3" style={{ width: '90%' }}><span>10.67x</span></div>
                       </div>
                     </div>
                   </div>
