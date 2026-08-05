@@ -1,9 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-const PARTICLE_COUNT = 140;
-const CONNECT_DISTANCE = 220;
-const BASE_SPEED = 1.2;
+const BASE_SPEED = 1.0;
 const COLOR = "13, 148, 136"; // teal neon type theme color, matching the site's var(--accent)
 
 type Particle = {
@@ -33,7 +31,12 @@ export default function ParticleBackground() {
     canvas.width = width;
     canvas.height = height;
 
-    const particles: Particle[] = Array.from({ length: PARTICLE_COUNT }).map(
+    const isMobile = width < 768;
+    const particleCount = isMobile ? 40 : 90;
+    const connectDistance = isMobile ? 130 : 180;
+    const maxLineOpacity = isMobile ? 0.2 : 0.3;
+
+    let particles: Particle[] = Array.from({ length: particleCount }).map(
       () => ({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -49,11 +52,30 @@ export default function ParticleBackground() {
       height = window.innerHeight;
       canvas!.width = width;
       canvas!.height = height;
+      
+      const newIsMobile = width < 768;
+      const newCount = newIsMobile ? 40 : 90;
+      if (particles.length !== newCount) {
+        particles = Array.from({ length: newCount }).map(
+          () => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * BASE_SPEED,
+            vy: (Math.random() - 0.5) * BASE_SPEED,
+            r: Math.random() * 1.5 + 1,
+            pulse: Math.random() * Math.PI * 2,
+          })
+        );
+      }
     }
     window.addEventListener("resize", resize);
 
     function drawFrame(animated: boolean) {
       ctx!.clearRect(0, 0, width, height);
+      
+      const currentConnectDistance = width < 768 ? 130 : 180;
+      const currentMaxOpacity = width < 768 ? 0.2 : 0.3;
+
       for (const p of particles) {
         if (animated) {
           p.x += p.vx;
@@ -77,8 +99,8 @@ export default function ParticleBackground() {
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < CONNECT_DISTANCE) {
-            const opacity = 0.45 * (1 - dist / CONNECT_DISTANCE);
+          if (dist < currentConnectDistance) {
+            const opacity = currentMaxOpacity * (1 - dist / currentConnectDistance);
             ctx!.beginPath();
             ctx!.moveTo(a.x, a.y);
             ctx!.lineTo(b.x, b.y);
