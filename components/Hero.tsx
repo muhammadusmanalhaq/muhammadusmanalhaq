@@ -50,8 +50,8 @@ export default function Hero() {
           {/* Subtle glowing orb right behind the text */}
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 60%)', filter: 'blur(40px)', zIndex: -1 }} />
           
-          <h1 style={{ fontSize: 'clamp(44px, 7vw, 110px)', fontWeight: 900, lineHeight: 1.05, letterSpacing: '-2px', textTransform: 'uppercase', margin: 0, animation: 'fadeInDown 0.8s 0.1s ease both', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <div style={{ display: 'flex', gap: '16px', alignItems: 'baseline', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <h1 style={{ fontSize: 'clamp(44px, 7vw, 110px)', fontWeight: 900, lineHeight: 1, letterSpacing: '-2px', textTransform: 'uppercase', margin: 0, animation: 'fadeInDown 0.8s 0.1s ease both', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
+            <div style={{ display: 'flex', gap: '20px', alignItems: 'baseline', justifyContent: 'center', flexWrap: 'wrap' }}>
               <span style={{ color: 'var(--muted)', fontWeight: 300 }}>Muhammad</span>
               <span style={{ color: 'var(--text)' }}>Usman</span>
             </div>
@@ -60,10 +60,10 @@ export default function Hero() {
         </div>
 
         {/* Roles - Elegant Line Layout */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '20px', margin: '40px 0 48px 0', width: '100%', maxWidth: '700px', animation: 'fadeInUp 0.8s 0.2s ease both' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', margin: '40px 0 48px 0', width: '100%', maxWidth: '700px', animation: 'fadeInUp 0.8s 0.2s ease both' }}>
           <span style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5))' }} />
-          <h2 style={{ fontSize: 'clamp(13px, 1.5vw, 16px)', fontWeight: 600, color: 'var(--muted)', letterSpacing: '3px', textTransform: 'uppercase', margin: 0, whiteSpace: 'nowrap' }}>
-            Cloud / DevOps <span style={{ color: 'var(--accent)', margin: '0 12px' }}>✦</span> .NET Full-Stack
+          <h2 style={{ fontSize: 'clamp(11px, 3vw, 16px)', fontWeight: 600, color: 'var(--muted)', letterSpacing: '2px', textTransform: 'uppercase', margin: 0, textAlign: 'center', whiteSpace: 'normal', lineHeight: 1.4 }}>
+            Cloud / DevOps <span style={{ color: 'var(--accent)', margin: '0 8px', display: 'inline-block' }}>✦</span> .NET Full-Stack
           </h2>
           <span style={{ flex: 1, height: '1px', background: 'linear-gradient(270deg, transparent, rgba(56, 189, 248, 0.5))' }} />
         </div>        {/* Glassmorphic Social Pill */}

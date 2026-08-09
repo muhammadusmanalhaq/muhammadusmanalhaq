@@ -5,9 +5,9 @@ import { useEffect, useState } from 'react'
 const NAV_SECTIONS = [
   { id: 'hero', label: 'HERO', num: '01' },
   { id: 'about', label: 'ABOUT', num: '02' },
-  { id: 'experience', label: 'EXPERIENCE', num: '03' },
+  { id: 'skills', label: 'SKILLS', num: '03' },
   { id: 'projects', label: 'PROJECTS', num: '04' },
-  { id: 'skills', label: 'SKILLS', num: '05' },
+  { id: 'experience', label: 'EXPERIENCE', num: '05' },
   { id: 'achievements', label: 'CREDENTIALS', num: '06' },
   { id: 'contact', label: 'CONTACT', num: '07' },
 ]
