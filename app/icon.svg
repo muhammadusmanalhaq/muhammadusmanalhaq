@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="112" fill="#020408"/>
-  <text x="256" y="345" font-family="system-ui, -apple-system, sans-serif" font-size="240" font-weight="900" text-anchor="middle">
-    <tspan fill="#ffffff">M</tspan><tspan fill="#5aa9e6">U</tspan>
-  </text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <rect width="36" height="36" fill="#111c26"/>
+  <rect x="2.5" y="2.5" width="31" height="31" fill="none" stroke="#ffac81"/>
+  <path d="M8 24V12l5 6 5-6v12m4-12v8a4 4 0 0 0 8 0v-8" fill="none" stroke="#ffac81" stroke-width="1.6"/>
 </svg>
